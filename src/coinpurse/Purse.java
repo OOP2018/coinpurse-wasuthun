@@ -10,7 +10,7 @@ import java.util.Collections;
  * A coin purse contains coins. You can insert coins, withdraw money, check the
  * balance, and check if the purse is full.
  * 
- * @author your name
+ * @author wasuthun wanaphongthipakorn
  */
 public class Purse {
 	/** Collection of objects in the purse. */
@@ -78,10 +78,7 @@ public class Purse {
 	 * @return true if purse is full.
 	 */
 	public boolean isFull() {
-
-		if (money.size() == this.capacity)
-			return true;
-		return false;
+		return money.size()==this.capacity;
 	}
 
 	/**
@@ -123,7 +120,6 @@ public class Purse {
 					templist.add(coin);
 				}
 			} else {
-				System.out.println("k");
 				return null;
 			}
 		}
