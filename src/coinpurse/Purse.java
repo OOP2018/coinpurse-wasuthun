@@ -2,6 +2,7 @@ package coinpurse;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 
 // You will use Collections.sort() to sort the valuable
@@ -110,7 +111,8 @@ public class Purse {
 	 */
 	public Valuable[] withdraw(double amount) {
 		ArrayList<Valuable> templist = new ArrayList<>();
-		Collections.sort(money,new ValueComparator());
+		Comparator<Valuable> comp=new ValueComparator(); 
+		Collections.sort(money,comp);
 		Collections.reverse(money);
 
 		for (Valuable coin : money) {
@@ -130,6 +132,7 @@ public class Purse {
 			}
 			Valuable[] array = new Valuable[templist.size()];
 			templist.toArray(array);
+			System.out.println(money);
 			return array;
 		}
 		return null;

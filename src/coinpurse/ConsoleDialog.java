@@ -82,10 +82,19 @@ public class ConsoleDialog {
         Scanner scanline = new Scanner(inline);
         while( scanline.hasNextDouble() ) {
             double value = scanline.nextDouble();
-            Coin coin = makeMoney(value);
-            System.out.printf("Deposit %s... ", coin.toString() );
-            boolean ok = purse.insert(coin);
-            System.out.println( (ok? "ok" : "FAILED") );
+            if(value<20) {
+            			Coin coin = (Coin) makeMoney(value);
+            			System.out.printf("Deposit %s... ", coin.toString() );
+            			boolean ok = purse.insert(coin);
+            			System.out.println( (ok? "ok" : "FAILED") );
+            }
+            else 
+            {
+            	  		BankNote banknote = (BankNote) makeMoney(value);
+            	  		System.out.printf("Deposit %s... ", banknote.toString() );
+            	  		boolean ok = purse.insert(banknote);
+            	  		System.out.println( (ok? "ok" : "FAILED") );
+            }
         }
         if ( scanline.hasNext() )
             System.out.println("Invalid input: "+scanline.next() );
@@ -124,8 +133,12 @@ public class ConsoleDialog {
     }
     
     /** Make a Coin (or BankNote or whatever) using requested value. */
-    private Coin makeMoney(double value) {
-    	return new Coin(value, CURRENCY);
+    private Valuable makeMoney(double value) {
+    		if(value<20)	
+    			return new Coin(value, CURRENCY);
+    		else
+    			return new BankNote(value, CURRENCY);
     }
+ 
 
 }

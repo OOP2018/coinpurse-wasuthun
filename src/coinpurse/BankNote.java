@@ -47,9 +47,9 @@ public class BankNote implements Valuable {
 	 */
 	public boolean equals(Object obj) {
 		if(obj==null)return false;
-		if(obj.getClass()==this.getClass())return false;
+		if(obj.getClass()!=this.getClass())return false;
 		BankNote other=(BankNote)obj;
-		return other.getCurrency().equals(this.getCurrency())&&other.getValue()==this.getValue();
+		return other.getCurrency().equalsIgnoreCase(this.getCurrency())&&other.getValue()==this.getValue();
 	}
 	@Override
 	/**
