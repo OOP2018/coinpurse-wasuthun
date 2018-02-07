@@ -1,24 +1,24 @@
 package coinpurse;
 /**
- *  this class is use to build object of BankNote for used
+ *  This class is use to build object of BankNote for used
  * @author wasuthun wanaphongthipakorn
  *
  */
 public class BankNote implements Valuable {
 	/**
-	 * this is a next serial number of each BankNote that start from 1000000
+	 * This is a next serial number of each BankNote that start from 1000000
 	 */
 	private static long nextSerialNumber=1000000;
 	/**
-	 * this is a value of BankNote
+	 * This is a value of BankNote
 	 */
 	private double value;
 	/**
-	 * this is a currency of BankNote
+	 * This is a currency of BankNote
 	 */
 	private String currency;
 	/**
-	 * this is a specific serial number of each BankNote
+	 * This is a specific serial number of each BankNote
 	 */
 	private long serialNumber;
 	/**

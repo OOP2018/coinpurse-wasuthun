@@ -2,7 +2,7 @@ package coinpurse;
 
 import java.util.Comparator;
 /**
- *  this class have a method to compare 2 Valuable
+ *  This class have a method to compare 2 Valuable
  * @author wasuthun wanaphongthipakorn
  *
  */

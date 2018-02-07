@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 /**
- * this class is use to show a 2 method filterByCurrency,sortCoins
+ * This class is use to show a 2 method filterByCurrency,sortCoins
  * @author wasuthun wanaphongthiapkorn
  *
  */
 public class MoneyUtil {
 /**
- * this method is use to filter a Valuable by using currency
+ * This method is use to filter a Valuable by using currency
  * @param valuable
  * @param currency
  * @return list of coin with same currency in parameter
@@ -25,7 +25,7 @@ public class MoneyUtil {
 		return listcurrency;
 	}
 	/**
-	 * this method is use to print by printSort and sort valuable
+	 * This method is use to print by printSort and sort valuable
 	 * @param valuable
 	 */
 	public static void sortCoins(List<Valuable> valuable) {

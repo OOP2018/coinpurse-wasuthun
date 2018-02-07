@@ -1,16 +1,16 @@
 package coinpurse;
 /**
- * this class is use to build object of Coin for used
+ * This class is use to build object of Coin for used
  * @author wasuthun wanaphongthipakorn
  *
  */
 public class Coin implements Comparable<Coin>,Valuable {
 	/*
- 	* value of coin
+ 	* Value of coin
  	*/
 	private double value;
 	/*
-	 * currency of coin
+	 * Currency of coin
 	 */
 	private String currency;
 	/**
@@ -24,7 +24,7 @@ public class Coin implements Comparable<Coin>,Valuable {
 	}
 
 	/**
-	 * use to access value of coin
+	 * Use to access value of coin
 	 * @return value of coin
 	 */
 	public double getValue() {
@@ -32,7 +32,7 @@ public class Coin implements Comparable<Coin>,Valuable {
 	}
 
 	/**
-	 * use to access currency of coin
+	 * Use to access currency of coin
 	 * @return currency of coin
 	 */
 	public String getCurrency() {
@@ -41,7 +41,7 @@ public class Coin implements Comparable<Coin>,Valuable {
 
 	@Override
 	/**
-	 * this method used to check a coin if coin is equal object return true else false
+	 * This method used to check a coin if coin is equal object return true else false
 	 * @return result of checking a coin and obj
 	 */
 	public boolean equals(Object obj) {
@@ -55,7 +55,7 @@ public class Coin implements Comparable<Coin>,Valuable {
 
 	@Override
 	/**
-	 * this method is use to compare value of coin
+	 * This method is use to compare value of coin
 	 * @return integer if equal return 0 if less than return -1 if more than return 1 
 	 */
 	public int compareTo(Coin o) {
@@ -70,7 +70,7 @@ public class Coin implements Comparable<Coin>,Valuable {
 	
 	@Override
 	/**
-	 * use to print detail of coin
+	 * Use to print detail of coin
 	 */
 	public String toString() {
 		return this.getValue() + "-" + this.getCurrency();
