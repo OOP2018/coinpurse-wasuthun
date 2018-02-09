@@ -127,7 +127,7 @@ public class PurseTest {
 
 	/** Add one Valuable and remove it. */
 	@Test(timeout = 1000)
-	public void EasyWithdrawBankCoin() {
+	public void easyWithdrawBankCoin() {
 		Purse purse = new Purse(10);
 		double[] values = { 1, 20, 25, 29 }; // values of coins we will insert
 
