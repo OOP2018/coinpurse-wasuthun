@@ -22,6 +22,10 @@ public class Purse {
 	 * the purse is created and cannot be changed.
 	 */
 	private final int capacity;
+	/**
+	 * Comparator use for compare Valuable
+	 */
+	private Comparator<Valuable> comp=new ValueComparator();
 
 	/**
 	 * Create a purse with a specified capacity.
@@ -145,7 +149,6 @@ public class Purse {
 	 */
 	public Valuable[] withdraw(Valuable amount) {
 		ArrayList<Valuable> templist = new ArrayList<>();
-		Comparator<Valuable> comp=new ValueComparator();
 		double amounts=amount.getValue();
 		Collections.sort(money,comp);
 		Collections.reverse(money);

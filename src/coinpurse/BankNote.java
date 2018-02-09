@@ -32,11 +32,12 @@ public class BankNote extends Money {
 		return this.serialNumber;
 	}
 	
-	@Override
+	
 	/**
 	 * Use to print a detail of this BankNote
 	 * @return a String of detail of BankNote
 	 */
+	@Override
 	public String toString() {
 		return this.getValue()+"-"+this.getCurrency()+" note ["+this.getSerial()+"]";
 	}

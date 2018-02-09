@@ -14,10 +14,11 @@ public class Coin extends Money{
 		super(value, currency);
 	}
 
-	@Override
+	
 	/**
 	 * Use to print detail of coin
 	 */
+	@Override
 	public String toString() {
 		return this.getValue() + "-" + this.getCurrency();
 	}
