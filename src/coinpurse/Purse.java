@@ -102,23 +102,59 @@ public class Purse {
 
 	/**
 	 * Withdraw the requested amount of money. Return an array of Valuable withdrawn
-	 * from purse, or return null if cannot withdraw the amount requested.
+	 * from purse, or return null if cannot withdraw the amount requested.this method will call withdraw(Valuable amount)
 	 * 
 	 * @param amount
-	 *            is the amount to withdraw
+	 *           type double is the amount to withdraw
 	 * @return array of Valuable objects for money withdrawn, or null if cannot withdraw
 	 *         requested amount.
 	 */
 	public Valuable[] withdraw(double amount) {
+		Money money=new Money(amount,"Baht");
+		return withdraw(money);
+		/*
+		 * See lab sheet for outline of a solution, or devise your own solution. The
+		 * idea is to be greedy. Try to withdraw the largest coins possible. Each time
+		 * you choose a valuable as a candidate for withdraw, add it to a temporary list and
+		 * decrease the amount (remainder) to withdraw.
+		 * 
+		 * If you reach a point where amountNeededToWithdraw == 0 then you found a
+		 * solution! Now, use the temporary list to remove coins from the money list,
+		 * and return the temporary list (as an array).
+		 */
+
+		// Did we get the full amount?
+		// This code assumes you decrease amount each time you remove a valuable.
+		// Your code might use some other variable for the remaining amount to withdraw.
+
+		// Success.
+		// Remove the valuable you want to withdraw from purse,
+		// and return them as an array.
+		// Use list.toArray( array[] ) to copy a list into an array.
+		// toArray returns a reference to the array itself.
+
+	}
+	/**
+	 * Withdraw the requested amount of money. Return an array of Valuable withdrawn
+	 * from purse, or return null if cannot withdraw the amount requested.
+	 * 
+	 * @param amount
+	 *          type Valuable is the amount to withdraw 
+	 * @return array of Valuable objects for money withdrawn, or null if cannot withdraw
+	 *         requested amount.
+	 */
+	public Valuable[] withdraw(Valuable amount) {
 		ArrayList<Valuable> templist = new ArrayList<>();
-		Comparator<Valuable> comp=new ValueComparator(); 
+		Comparator<Valuable> comp=new ValueComparator();
+		double amounts=amount.getValue();
 		Collections.sort(money,comp);
 		Collections.reverse(money);
-
+ 
 		for (Valuable coin : money) {
-			if (amount >= 0) {
-				if (coin.getValue() <= amount) {
-					amount -= coin.getValue();
+			if (amounts >= 0) {
+		
+				if (coin.getValue() <= amounts && coin.getCurrency().equalsIgnoreCase(amount.getCurrency())) {
+					amounts -= coin.getValue();
 					templist.add(coin);
 				}
 			} else {
@@ -126,7 +162,7 @@ public class Purse {
 			}
 		}
 
-		if (amount == 0) {
+		if (amounts == 0) {
 			for (Valuable coin : templist) {
 				money.remove(coin);
 			}
@@ -158,6 +194,7 @@ public class Purse {
 		// toArray returns a reference to the array itself.
 
 	}
+	
 
 	/**
 	 * toString returns a string description of the purse contents. It can return

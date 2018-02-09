@@ -4,7 +4,7 @@ package coinpurse;
  * @author wasuthun wanaphongthipakorn
  *
  */
-public interface Valuable {
+public interface Valuable extends Comparable<Valuable>{
 	/**
 	 * Use to access a value of Valuable
 	 * @return value of Valuable in double type
@@ -15,4 +15,5 @@ public interface Valuable {
 	 * @return String of currency of Valuable
 	 */
 	public String getCurrency();
+	
 }
