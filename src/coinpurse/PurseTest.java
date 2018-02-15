@@ -35,7 +35,7 @@ public class PurseTest {
 	/** Make a coin with the default currency. To save typing "new Coin(...)" */
 	private Valuable makeCoin(double value) {
 		if (value > 20)
-			return new BankNote(value, CURRENCY);
+			return new BankNote(value, CURRENCY,100000);
 		return new Coin(value, CURRENCY);
 	}
 

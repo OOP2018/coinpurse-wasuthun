@@ -51,8 +51,8 @@ public class MoneyUtil {
 		p.insert(new Coin(4, "Dollar"));
 		p.insert(new Coin(2, "Bath"));
 		p.insert(new Coin(7,"Bath"));
-		p.insert(new BankNote(20, "Bath"));
-		p.insert(new BankNote(50, "Bath"));
+		p.insert(new BankNote(20, "Bath",100000));
+		p.insert(new BankNote(50, "Bath",100001));
 		System.out.println(p.toString());
 		System.out.println(filterByCurrency(p.getMoney(), "Bath").toString());
 		sortCoins(p.getMoney());

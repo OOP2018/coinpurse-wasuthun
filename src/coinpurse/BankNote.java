@@ -5,10 +5,7 @@ package coinpurse;
  *
  */
 public class BankNote extends Money {
-	/**
-	 * This is a next serial number of each BankNote that start from 1000000
-	 */
-	private static long nextSerialNumber=1000000;
+	
 	/**
 	 * This is a specific serial number of each BankNote
 	 */
@@ -18,7 +15,7 @@ public class BankNote extends Money {
 	 * @param value
 	 * @param currency
 	 */
-	public BankNote(double value,String currency) {
+	public BankNote(double value,String currency,long nextSerialNumber) {
 		super(value, currency);
 		this.serialNumber=nextSerialNumber;
 		nextSerialNumber++;
