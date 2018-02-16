@@ -20,9 +20,9 @@ public class Coin extends Money{
 	@Override
 	public String toString() {
 		if(this.getValue()<1&&this.getCurrency().equalsIgnoreCase("Ringgit"))
-			return this.getValue()*100+"-Sen";
+			return this.getValue()*100+"-Sen coin";
 		else if(this.getValue()<1&&this.getCurrency().equalsIgnoreCase("Baht"))
-			return this.getValue()*100+"-Stang";
+			return this.getValue()*100+"-Stang coin";
 		else
 		return this.getValue() + "-" + this.getCurrency();
 	}

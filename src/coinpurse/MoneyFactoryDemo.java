@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
  * @author wasuthun wanaphongthipakorn
  *
  */
-public class TestMoneyFactory {
+public class MoneyFactoryDemo {
 	/**
 	 * Main method
 	 * 
@@ -18,6 +18,7 @@ public class TestMoneyFactory {
 		ResourceBundle bundle = ResourceBundle.getBundle("purse");
 		String factoryclass = bundle.getString("moneyfactory");
 		MoneyFactory factory = null;
+		MoneyFactory factory2 =null;
 		try {
 			factory = (MoneyFactory) Class.forName(factoryclass).newInstance();
 		} catch (ClassCastException cce) {
@@ -30,6 +31,9 @@ public class TestMoneyFactory {
 		else {
 			factory.setMoneyFactory(factory);
 			factory = factory.getInstance();
+			factory2=factory2.getInstance();
+			System.out.print("Test MoneyFactory is Singleton ");
+			System.out.println(factory2==factory);
 			Purse p = new Purse(5);
 			p.insert(factory.createMoney("5"));
 			p.insert(factory.createMoney(0.25));
