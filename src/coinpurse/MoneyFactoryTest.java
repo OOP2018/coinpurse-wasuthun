@@ -62,14 +62,6 @@ public class MoneyFactoryTest {
 	    assertEquals(true, instance1==instance2);	
 
 	}
-	/** Easy test that the Purse constructor is working. */
-	@Test
-	public void testConstructor() {
-		Purse purse = new Purse(3);
-		assertEquals(3, purse.getCapacity());
-		assertEquals(false, purse.isFull());
-		assertEquals(0, purse.count());
-	}
 
 	/** Insert some coins. Easy test. */
 	@Test
