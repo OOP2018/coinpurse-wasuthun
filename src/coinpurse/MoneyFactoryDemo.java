@@ -44,6 +44,20 @@ public class MoneyFactoryDemo {
 				System.out.println(v.toString());
 			}
 			System.out.println(p.toString());
+			//Test Malay
+			factory2.setMoneyFactory(new MalayMoneyFactory());
+			factory2=factory2.getInstance();
+			p=new Purse(2);
+			p.insert(factory2.createMoney(1));
+			p.insert(factory2.createMoney(0.05));
+			for (Valuable v : p.getMoney()) {
+				System.out.println(v.toString());
+			}
+			System.out.println(p.toString());
+			
+			//Test invalid value
+			p=new Purse(1);
+			p.insert(factory.createMoney(3));
 		}
 	}
 }

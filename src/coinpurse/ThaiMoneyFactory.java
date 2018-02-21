@@ -8,6 +8,10 @@ package coinpurse;
  */
 public class ThaiMoneyFactory extends MoneyFactory {
 	/**
+	 * This is a next serial number of each BankNote that start from 1000000
+	 */
+	protected static long nextSerialNumber = 1000000;
+	/**
 	 * This method is override abstract method from super class and use to create
 	 * Thai Valuable
 	 * 
@@ -20,7 +24,7 @@ public class ThaiMoneyFactory extends MoneyFactory {
 		else if (value == 1 || value == 2 || value == 5 || value == 10 || value == 0.25 || value == 0.50)
 			return new Coin(value, "Baht");
 		else
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Thailand doesn't have "+value+" note");
 	}
 
 }

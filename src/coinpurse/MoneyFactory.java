@@ -9,20 +9,22 @@ public abstract class MoneyFactory {
 	 * This is a instance object
 	 */
 	private static MoneyFactory factory = null;
-	/**
-	 * This is a next serial number of each BankNote that start from 1000000
-	 */
-	protected static long nextSerialNumber = 1000000;
+
 
 	/**
-	 * Constructor
+	 * Instance method
 	 * 
 	 * @return instance object
 	 */
 	public static MoneyFactory getInstance() {
 		return factory;
 	}
-
+	/**
+	 * Constructor
+	 */
+	protected MoneyFactory() {
+		
+	}
 	/**
 	 * Abstract method for create Valuable by using parameter double
 	 * 

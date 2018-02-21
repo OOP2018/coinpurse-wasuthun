@@ -8,6 +8,10 @@ package coinpurse;
  */
 public class MalayMoneyFactory extends MoneyFactory {
 	/**
+	 * This is a next serial number of each BankNote that start from 1000000
+	 */
+	protected static long nextSerialNumber = 1000000;
+	/**
 	 * This method is override abstract method from super class and use to create
 	 * Malay Valuable
 	 * 
@@ -21,7 +25,7 @@ public class MalayMoneyFactory extends MoneyFactory {
 		else if (value == 1 || value == 2 || value == 5 || value == 10 || value == 20 || value == 50 || value == 100)
 			return new BankNote(value, "Ringgit", nextSerialNumber++);
 		else
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Malaysia doesn't have "+value+" note");
 	}
 
 }
