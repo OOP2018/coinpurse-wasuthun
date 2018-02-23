@@ -56,8 +56,15 @@ public class MoneyFactoryDemo {
 			System.out.println(p.toString());
 			
 			//Test invalid value
+			int value=3;
 			p=new Purse(1);
-			p.insert(factory.createMoney(3));
+			try {
+			p.insert(factory2.createMoney(value));
+			}catch (Exception e) {
+				System.out.println("Malay doesn't have "+value+" Ringgit note");
+			}
+			System.out.println(p.toString());
+			
 		}
 	}
 }
