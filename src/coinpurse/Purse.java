@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import coinpurse.strategy.GreedyWithdraw;
+import coinpurse.strategy.WithdrawStrategy;
+
 
 // You will use Collections.sort() to sort the valuable
 
@@ -33,10 +36,14 @@ public class Purse {
 	 * @param capacity
 	 *            is maximum number of valuable you can put in purse.
 	 */
+	private WithdrawStrategy strategy;
 	public Purse(int capacity) {
 		this.capacity = capacity;
+		strategy=new GreedyWithdraw();
 	}
-
+	public void setWithdrawStrategy(WithdrawStrategy ws) {
+		this.strategy=ws;
+	}
 	/**
 	 * Count and return the number of valuable in the purse. This is the number of
 	 * valuable, not their value.
@@ -148,33 +155,22 @@ public class Purse {
 	 *         requested amount.
 	 */
 	public Valuable[] withdraw(Valuable amount) {
-		ArrayList<Valuable> templist = new ArrayList<>();
-		double amounts=amount.getValue();
-		Collections.sort(money,comp);
-		Collections.reverse(money);
- 
-		for (Valuable coin : money) {
-			if (amounts >= 0) {
-		
-				if (coin.getValue() <= amounts && coin.getCurrency().equalsIgnoreCase(amount.getCurrency())) {
-					amounts -= coin.getValue();
-					templist.add(coin);
-				}
-			} else {
-				return null;
-			}
-		}
-
-		if (amounts == 0) {
-			for (Valuable coin : templist) {
-				money.remove(coin);
+	
+			Collections.sort(money,comp);
+			Collections.reverse(money);
+			ArrayList<Valuable> templist;
+			templist=(ArrayList<Valuable>) strategy.withdraw(amount, money);
+			if(templist!=null) {
+			for (Valuable valuable : templist) {
+				if(money.contains(valuable)) money.remove(valuable);
 			}
 			Valuable[] array = new Valuable[templist.size()];
-			templist.toArray(array);
-			System.out.println(money);
-			return array;
-		}
-		return null;
+				templist.toArray(array);
+				return array;
+			}
+			return null;
+		
+	
 		/*
 		 * See lab sheet for outline of a solution, or devise your own solution. The
 		 * idea is to be greedy. Try to withdraw the largest coins possible. Each time
